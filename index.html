@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <meta http-equiv="X-UA-Compatible" content="ie=edge">
+ <title>Bellybutton Biodiversity</title>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+ 
+<body style="background-color:rgb(26, 117, 159);">
+ <body>
+   <div class="container">
+     <div class="row">
+       <div class="col-md-12 jumbotron text-center" style="background-image: url(https://perlmanclinic.com/wp-content/uploads/2015/06/bacterial-virus.jpg);">  >
+         <font color="white"> 
+           <h1>Belly Button Biodiversity Dashboard</h1>
+           <p>Use the interactive charts below to explore the dataset</p>
+         </font>
+       </div>
+     </div>   
+     <div class = "col-md-4"></div>
+     <div class="row">
+     <div class="col-md-4">
+       <div class="well">
+         <h4>Test Subject ID No.:</h4>
+         <!-- <select id="selDataset"></select> -->
+         <select id="selDataset" onchange="optionChanged(this.value)"></select>
+       </div>
+       </div>
+     </div>
+     <div class = "col-md-4"></div>
+     <div class = "row">
+         <div class="col-md-4">   
+       <div class="panel panel-primary">
+         <div class="panel-heading">
+           <h3 class="panel-title">Demographic Info</h3>
+         </div>
+         <div id="sample-metadata" class="panel-body"></div>
+         </div>
+     </div>
+   </div>
+     <div class="col-md-6">
+       <div id="bar"></div>
+     </div>
+     <div class="col-md-6">
+       <div id="gauge"></div>
+     </div>
+  
+   <div class="row">
+     <div class="col-md-12">
+     </div>
+   </div>   
+   <br>
+ 
+   <div class="row">
+     <div class="col-md-12">
+       <div id="bubble"></div>
+     </div>
+   </div>
+ <br>
+ <div class="row">
+   <div class="col-md-12">
+   <font color="white">
+     <p> <h4>This website helps the user visualize the bacterial data for each volunteer. You can see different charts of all of the test subjects by selecting their ID number on the drop down menu. The bar graph shows the top 10 bacterial cultures in the volunteer’s belly button. The gauge chart shows the frequency of washing hands shown by scrubs per week. The bubble chart shows the concentration of the sample and the biodiversity of the bacteria represented by the size of the bubbles.
+     </h4> </p>
+   </font>
+ </div>
+ </div>
+</div>
+ 
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+ <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+ <script src="samples.json"></script>
+ <script src="static/js/charts.js"></script>
+ 
+</body>
+ 
+</html>
