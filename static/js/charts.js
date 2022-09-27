@@ -74,7 +74,7 @@ function buildCharts(sample) {
     // 7. Create the yticks for the bar chart.
     // Hint: Get the the top 10 otu_ids and map them in descending order  
     //  so the otu_ids with the most bacteria are last. 
-    var yticks = otu_ids.slice(0,10).map(otu_ids => `OTU ${otuID}`).reverse();
+    var yticks = otu_ids.slice(0,10).map(otuID => `OTU ${otuID}`).reverse();
 
     // 8. Create the trace for the bar chart. 
     var barData = [
@@ -104,7 +104,7 @@ function buildCharts(sample) {
        text: otu_labels,
        mode: "markers",
        marker: {
-        size: sample_variables,
+        size: sample_values,
         color: otu_ids,
         colorscale: "Navy"
        }
@@ -124,11 +124,14 @@ function buildCharts(sample) {
     Plotly.newPlot("bubble", bubbleData, bubbleLayout); 
 
 // Gauge Chart
-    
+var metadata = data.metadata;
+// Filter the data for the object with the desired sample number
+var metaArray = metadata.filter(sampleObj => sampleObj.id == sample);
+var metaresult = metaArray[0];
     // 4. Create the trace for the gauge chart.
     var gaugeData = [{
       domain: { x: [0,1], y: [0,1]},
-      value: washington_frequency,
+      value: metaresult.wfreq,
       type: "indicator",
       mode: "gauge+number",
       title: { text: "<b> Belly Button Washington Frequency</b> <br> # of Scrubs per Week" },
@@ -143,7 +146,7 @@ function buildCharts(sample) {
           {range: [8,10], color: "dodgerblue"}
         ],
         threshhold: {
-          values: washington_frequency,
+          values: metaresult.wfreq,
         }
     }
   }];
